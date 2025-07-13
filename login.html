@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    .form-box { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+    input { width: 100%; padding: 10px; margin: 10px 0; }
+    button { padding: 10px; width: 100%; background: blue; color: white; border: none; }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Username">
+    <input type="password" id="login-password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="register.html">Register</a></p>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById('login-username').value;
+      const pass = document.getElementById('login-password').value;
+
+      if (user === localStorage.getItem('user') && pass === localStorage.getItem('pass')) {
+        alert("Login successful!");
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Wrong username or password!");
+      }
+    }
+  </script>
+</body>
+</html>
